@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hc.mapper.system.SysRoleMapper">
+  <resultMap id="BaseResultMap" type="com.hc.common.system.SysRole">
+    <!--@mbg.generated-->
+    <id column="ROLE_ID" jdbcType="VARCHAR" property="roleId" />
+    <result column="ROLE_NAME" jdbcType="VARCHAR" property="roleName" />
+    <result column="RIGHTS" jdbcType="VARCHAR" property="rights" />
+    <result column="PARENT_ID" jdbcType="VARCHAR" property="parentId" />
+    <result column="ADD_QX" jdbcType="VARCHAR" property="addQx" />
+    <result column="DEL_QX" jdbcType="VARCHAR" property="delQx" />
+    <result column="EDIT_QX" jdbcType="VARCHAR" property="editQx" />
+    <result column="CHA_QX" jdbcType="VARCHAR" property="chaQx" />
+    <result column="RNUMBER" jdbcType="VARCHAR" property="rnumber" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ROLE_ID, ROLE_NAME, RIGHTS, PARENT_ID, ADD_QX, DEL_QX, EDIT_QX, CHA_QX, RNUMBER
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role
+    where ROLE_ID = #{roleId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from sys_role
+    where ROLE_ID = #{roleId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="ROLE_ID" keyProperty="roleId" parameterType="com.hc.common.system.SysRole" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_role (ROLE_NAME, RIGHTS, PARENT_ID, 
+      ADD_QX, DEL_QX, EDIT_QX, 
+      CHA_QX, RNUMBER)
+    values (#{roleName,jdbcType=VARCHAR}, #{rights,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, 
+      #{addQx,jdbcType=VARCHAR}, #{delQx,jdbcType=VARCHAR}, #{editQx,jdbcType=VARCHAR}, 
+      #{chaQx,jdbcType=VARCHAR}, #{rnumber,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="ROLE_ID" keyProperty="roleId" parameterType="com.hc.common.system.SysRole" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleName != null">
+        ROLE_NAME,
+      </if>
+      <if test="rights != null">
+        RIGHTS,
+      </if>
+      <if test="parentId != null">
+        PARENT_ID,
+      </if>
+      <if test="addQx != null">
+        ADD_QX,
+      </if>
+      <if test="delQx != null">
+        DEL_QX,
+      </if>
+      <if test="editQx != null">
+        EDIT_QX,
+      </if>
+      <if test="chaQx != null">
+        CHA_QX,
+      </if>
+      <if test="rnumber != null">
+        RNUMBER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleName != null">
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="rights != null">
+        #{rights,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="addQx != null">
+        #{addQx,jdbcType=VARCHAR},
+      </if>
+      <if test="delQx != null">
+        #{delQx,jdbcType=VARCHAR},
+      </if>
+      <if test="editQx != null">
+        #{editQx,jdbcType=VARCHAR},
+      </if>
+      <if test="chaQx != null">
+        #{chaQx,jdbcType=VARCHAR},
+      </if>
+      <if test="rnumber != null">
+        #{rnumber,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hc.common.system.SysRole">
+    <!--@mbg.generated-->
+    update sys_role
+    <set>
+      <if test="roleName != null">
+        ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="rights != null">
+        RIGHTS = #{rights,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        PARENT_ID = #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="addQx != null">
+        ADD_QX = #{addQx,jdbcType=VARCHAR},
+      </if>
+      <if test="delQx != null">
+        DEL_QX = #{delQx,jdbcType=VARCHAR},
+      </if>
+      <if test="editQx != null">
+        EDIT_QX = #{editQx,jdbcType=VARCHAR},
+      </if>
+      <if test="chaQx != null">
+        CHA_QX = #{chaQx,jdbcType=VARCHAR},
+      </if>
+      <if test="rnumber != null">
+        RNUMBER = #{rnumber,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ROLE_ID = #{roleId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hc.common.system.SysRole">
+    <!--@mbg.generated-->
+    update sys_role
+    set ROLE_NAME = #{roleName,jdbcType=VARCHAR},
+      RIGHTS = #{rights,jdbcType=VARCHAR},
+      PARENT_ID = #{parentId,jdbcType=VARCHAR},
+      ADD_QX = #{addQx,jdbcType=VARCHAR},
+      DEL_QX = #{delQx,jdbcType=VARCHAR},
+      EDIT_QX = #{editQx,jdbcType=VARCHAR},
+      CHA_QX = #{chaQx,jdbcType=VARCHAR},
+      RNUMBER = #{rnumber,jdbcType=VARCHAR}
+    where ROLE_ID = #{roleId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,16 @@
+server:
+  port: 17001
+eureka:
+  #单机
+  instance:
+    hostname: localhost
+
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:17001/eureka/
+
+spring:
+  application:
+    name: eureka-server

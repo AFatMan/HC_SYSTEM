@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: api-common
+
+mybatis-plus:
+  type-aliases-package: com.hc.common

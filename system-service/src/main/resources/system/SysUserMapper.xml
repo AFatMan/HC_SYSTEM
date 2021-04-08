@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hc.mapper.system.SysUserMapper">
+  <resultMap id="BaseResultMap" type="com.hc.common.system.SysUser">
+    <!--@mbg.generated-->
+    <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="RIGHTS" jdbcType="VARCHAR" property="rights" />
+    <result column="ROLE_ID" jdbcType="VARCHAR" property="roleId" />
+    <result column="LAST_LOGIN" jdbcType="VARCHAR" property="lastLogin" />
+    <result column="IP" jdbcType="VARCHAR" property="ip" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="BZ" jdbcType="VARCHAR" property="bz" />
+    <result column="SKIN" jdbcType="VARCHAR" property="skin" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="NUMBER" jdbcType="VARCHAR" property="number" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="ROLE_IDS" jdbcType="VARCHAR" property="roleIds" />
+    <result column="OPENID" jdbcType="VARCHAR" property="openid" />
+    <result column="HEAD_PORTRAIT" jdbcType="VARCHAR" property="headPortrait" />
+    <result column="KDZWY_INTERFACE_CALL_ACCOUNT" jdbcType="VARCHAR" property="kdzwyInterfaceCallAccount" />
+    <result column="KDZWY_INTERFACE_CALL_ACCOUNT_PASSWORD" jdbcType="VARCHAR" property="kdzwyInterfaceCallAccountPassword" />
+    <result column="KDZWY_ACCESSTOKEN" jdbcType="VARCHAR" property="kdzwyAccesstoken" />
+    <result column="IS_USE" jdbcType="VARCHAR" property="isUse" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    USER_ID, USERNAME, `PASSWORD`, `NAME`, RIGHTS, ROLE_ID, LAST_LOGIN, IP, `STATUS`, 
+    BZ, SKIN, EMAIL, `NUMBER`, PHONE, ROLE_IDS, OPENID, HEAD_PORTRAIT, KDZWY_INTERFACE_CALL_ACCOUNT, 
+    KDZWY_INTERFACE_CALL_ACCOUNT_PASSWORD, KDZWY_ACCESSTOKEN, IS_USE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from sys_user
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="USER_ID" keyProperty="userId" parameterType="com.hc.common.system.SysUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_user (USERNAME, `PASSWORD`, `NAME`, 
+      RIGHTS, ROLE_ID, LAST_LOGIN, 
+      IP, `STATUS`, BZ, SKIN, 
+      EMAIL, `NUMBER`, PHONE, 
+      ROLE_IDS, OPENID, HEAD_PORTRAIT, 
+      KDZWY_INTERFACE_CALL_ACCOUNT, KDZWY_INTERFACE_CALL_ACCOUNT_PASSWORD, 
+      KDZWY_ACCESSTOKEN, IS_USE)
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{rights,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}, #{lastLogin,jdbcType=VARCHAR}, 
+      #{ip,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{bz,jdbcType=VARCHAR}, #{skin,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{roleIds,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, #{headPortrait,jdbcType=VARCHAR}, 
+      #{kdzwyInterfaceCallAccount,jdbcType=VARCHAR}, #{kdzwyInterfaceCallAccountPassword,jdbcType=VARCHAR}, 
+      #{kdzwyAccesstoken,jdbcType=VARCHAR}, #{isUse,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="USER_ID" keyProperty="userId" parameterType="com.hc.common.system.SysUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        USERNAME,
+      </if>
+      <if test="password != null">
+        `PASSWORD`,
+      </if>
+      <if test="name != null">
+        `NAME`,
+      </if>
+      <if test="rights != null">
+        RIGHTS,
+      </if>
+      <if test="roleId != null">
+        ROLE_ID,
+      </if>
+      <if test="lastLogin != null">
+        LAST_LOGIN,
+      </if>
+      <if test="ip != null">
+        IP,
+      </if>
+      <if test="status != null">
+        `STATUS`,
+      </if>
+      <if test="bz != null">
+        BZ,
+      </if>
+      <if test="skin != null">
+        SKIN,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="number != null">
+        `NUMBER`,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="roleIds != null">
+        ROLE_IDS,
+      </if>
+      <if test="openid != null">
+        OPENID,
+      </if>
+      <if test="headPortrait != null">
+        HEAD_PORTRAIT,
+      </if>
+      <if test="kdzwyInterfaceCallAccount != null">
+        KDZWY_INTERFACE_CALL_ACCOUNT,
+      </if>
+      <if test="kdzwyInterfaceCallAccountPassword != null">
+        KDZWY_INTERFACE_CALL_ACCOUNT_PASSWORD,
+      </if>
+      <if test="kdzwyAccesstoken != null">
+        KDZWY_ACCESSTOKEN,
+      </if>
+      <if test="isUse != null">
+        IS_USE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="rights != null">
+        #{rights,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLogin != null">
+        #{lastLogin,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="skin != null">
+        #{skin,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="roleIds != null">
+        #{roleIds,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null">
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="headPortrait != null">
+        #{headPortrait,jdbcType=VARCHAR},
+      </if>
+      <if test="kdzwyInterfaceCallAccount != null">
+        #{kdzwyInterfaceCallAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="kdzwyInterfaceCallAccountPassword != null">
+        #{kdzwyInterfaceCallAccountPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="kdzwyAccesstoken != null">
+        #{kdzwyAccesstoken,jdbcType=VARCHAR},
+      </if>
+      <if test="isUse != null">
+        #{isUse,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hc.common.system.SysUser">
+    <!--@mbg.generated-->
+    update sys_user
+    <set>
+      <if test="username != null">
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `PASSWORD` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `NAME` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="rights != null">
+        RIGHTS = #{rights,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null">
+        ROLE_ID = #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLogin != null">
+        LAST_LOGIN = #{lastLogin,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        IP = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `STATUS` = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null">
+        BZ = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="skin != null">
+        SKIN = #{skin,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        `NUMBER` = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="roleIds != null">
+        ROLE_IDS = #{roleIds,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null">
+        OPENID = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="headPortrait != null">
+        HEAD_PORTRAIT = #{headPortrait,jdbcType=VARCHAR},
+      </if>
+      <if test="kdzwyInterfaceCallAccount != null">
+        KDZWY_INTERFACE_CALL_ACCOUNT = #{kdzwyInterfaceCallAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="kdzwyInterfaceCallAccountPassword != null">
+        KDZWY_INTERFACE_CALL_ACCOUNT_PASSWORD = #{kdzwyInterfaceCallAccountPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="kdzwyAccesstoken != null">
+        KDZWY_ACCESSTOKEN = #{kdzwyAccesstoken,jdbcType=VARCHAR},
+      </if>
+      <if test="isUse != null">
+        IS_USE = #{isUse,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hc.common.system.SysUser">
+    <!--@mbg.generated-->
+    update sys_user
+    set USERNAME = #{username,jdbcType=VARCHAR},
+      `PASSWORD` = #{password,jdbcType=VARCHAR},
+      `NAME` = #{name,jdbcType=VARCHAR},
+      RIGHTS = #{rights,jdbcType=VARCHAR},
+      ROLE_ID = #{roleId,jdbcType=VARCHAR},
+      LAST_LOGIN = #{lastLogin,jdbcType=VARCHAR},
+      IP = #{ip,jdbcType=VARCHAR},
+      `STATUS` = #{status,jdbcType=VARCHAR},
+      BZ = #{bz,jdbcType=VARCHAR},
+      SKIN = #{skin,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      `NUMBER` = #{number,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      ROLE_IDS = #{roleIds,jdbcType=VARCHAR},
+      OPENID = #{openid,jdbcType=VARCHAR},
+      HEAD_PORTRAIT = #{headPortrait,jdbcType=VARCHAR},
+      KDZWY_INTERFACE_CALL_ACCOUNT = #{kdzwyInterfaceCallAccount,jdbcType=VARCHAR},
+      KDZWY_INTERFACE_CALL_ACCOUNT_PASSWORD = #{kdzwyInterfaceCallAccountPassword,jdbcType=VARCHAR},
+      KDZWY_ACCESSTOKEN = #{kdzwyAccesstoken,jdbcType=VARCHAR},
+      IS_USE = #{isUse,jdbcType=VARCHAR}
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+</mapper>
